@@ -15,7 +15,7 @@ namespace BibliotecaGames.DAL
             try
             {
                 var command = new SqlCommand();
-                command.Connection = Conexao.connection;
+                command.Connection = Conexao._connection;
                 command.CommandText = "SELECT * FROM USUARIOS WHERE USUARIO = @USUARIO AND SENHA = @SENHA";
 
                 command.Parameters.AddWithValue("@USUARIO", nomeUsuario);

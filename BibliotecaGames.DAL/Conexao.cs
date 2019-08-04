@@ -10,21 +10,21 @@ namespace BibliotecaGames.DAL
     public class Conexao
     {
         public static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConexaoSqlServer"].ConnectionString;
-        public static SqlConnection connection = new SqlConnection(connectionString);
+        public static SqlConnection _connection = new SqlConnection(connectionString);
 
         public static void Conectar()
         {
-            if(connection.State == System.Data.ConnectionState.Closed)
+            if(_connection.State == System.Data.ConnectionState.Closed)
             {
-                connection.Open();
+                _connection.Open();
             }
         }
 
         public static void Desconectar()
         {
-            if (connection.State == System.Data.ConnectionState.Open)
+            if (_connection.State == System.Data.ConnectionState.Open)
             {
-                connection.Close();
+                _connection.Close();
             }
         }
     }
