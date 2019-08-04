@@ -9,12 +9,11 @@ namespace BibliotecaGames.DAL
 {
     public class Conexao
     {
-        static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConexaoSqlServer"].ConnectionString;
+        public static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConexaoSqlServer"].ConnectionString;
+        public static SqlConnection connection = new SqlConnection(connectionString);
 
         public static void Conectar()
         {
-            SqlConnection connection = new SqlConnection(connectionString);
-
             if(connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
@@ -23,8 +22,6 @@ namespace BibliotecaGames.DAL
 
         public static void Desconectar()
         {
-            SqlConnection connection = new SqlConnection(connectionString);
-
             if (connection.State == System.Data.ConnectionState.Open)
             {
                 connection.Close();
