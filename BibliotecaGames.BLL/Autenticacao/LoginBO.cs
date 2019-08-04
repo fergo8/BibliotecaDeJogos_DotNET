@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace BibliotecaGames.BLL.Autenticacao
 {
-    class LoginBO
+    public class LoginBO
     {
         private UsuarioDAO _usuarioDAO;
         public Usuario ObterUsuarioParaLogar(string nomeUsuario, string senha)
         {
+            _usuarioDAO = new UsuarioDAO();
             var usuario = _usuarioDAO.ObterUsuarioPorUsuarioSenha(nomeUsuario, senha);
             if(usuario == null)
             {
